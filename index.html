@@ -1,466 +1,388 @@
-
-
 <!doctype html>
-
 <html lang="en">
-
 <head>
-
   <meta charset="utf-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <meta name="description" content="The Oratory Restaurant, Cahersiveen — seasonal food, warm hospitality, and a memorable dining experience.">
-
   <title>The Oratory Restaurant | Cahersiveen</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-
     :root {
-
       --ink: #1f2a24;
-
       --cream: #f8f5ed;
-
       --sage: #87947c;
-
       --gold: #b88a4a;
-
       --deep: #314437;
-
       --white: #fffdf8;
-
     }
 
+    * {
+      box-sizing: border-box;
+    }
 
-    * { box-sizing: border-box; }
-
-
-    html { scroll-behavior: smooth; }
-
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
-
       margin: 0;
-
       color: var(--ink);
-
       background: var(--cream);
-
-      font-family: Arial, Helvetica, sans-serif;
-
+      font-family: "Manrope", Arial, sans-serif;
       line-height: 1.6;
-
     }
 
-
-    h1, h2, h3, p { margin-top: 0; }
-
+    h1, h2, h3, p {
+      margin-top: 0;
+    }
 
     h1, h2, h3 {
-
-      font-family: Georgia, "Times New Roman", serif;
-
-      line-height: 1.1;
-
+      font-family: "Cormorant Garamond", Georgia, serif;
+      line-height: 1.05;
     }
 
+    .navigation {
+      position: fixed;
+      z-index: 10;
+      top: 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 6%;
+      color: var(--white);
+      background: rgba(31, 42, 36, 0.88);
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      color: var(--white);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+    }
+
+    .navigation ul {
+      display: flex;
+      gap: 1.4rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .navigation a {
+      color: var(--white);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.2s ease;
+    }
+
+    .navigation a:hover,
+    .navigation a:focus {
+      color: #f3d6a7;
+    }
 
     .hero {
-
       min-height: 82vh;
-
       display: grid;
-
       place-items: center;
-
-      padding: 2rem;
-
+      padding: 7rem 2rem 2rem;
       text-align: center;
-
       color: var(--white);
-
       background:
-
         linear-gradient(rgba(23, 37, 28, 0.58), rgba(23, 37, 28, 0.76)),
-
         url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1800&q=85")
-
         center / cover;
-
     }
 
-
-    .hero-content { max-width: 760px; }
-
+    .hero-content {
+      max-width: 760px;
+    }
 
     .eyebrow {
-
       margin-bottom: 1rem;
-
       color: #f3d6a7;
-
       font-size: 0.78rem;
-
       font-weight: bold;
-
       letter-spacing: 0.18em;
-
       text-transform: uppercase;
-
     }
-
 
     h1 {
-
       margin-bottom: 1.25rem;
-
-      font-size: clamp(3rem, 8vw, 6.5rem);
-
-      font-weight: normal;
-
+      font-size: clamp(3.5rem, 8vw, 6.5rem);
+      font-weight: 500;
     }
-
 
     .hero p {
-
       max-width: 610px;
-
       margin: 0 auto 2rem;
-
-      font-size: clamp(1rem, 2.2vw, 1.25rem);
-
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
     }
-
 
     .button {
-
       display: inline-block;
-
-      padding: 0.85rem 1.35rem;
-
+      padding: 0.9rem 1.45rem;
       border: 1px solid var(--gold);
-
-      color: var(--white);
-
-      background: var(--gold);
-
       border-radius: 2px;
-
+      color: var(--white);
+      background: var(--gold);
+      font-size: 0.8rem;
       font-weight: bold;
-
-      letter-spacing: 0.04em;
-
+      letter-spacing: 0.08em;
       text-decoration: none;
-
-      transition: 0.2s ease;
-
+      text-transform: uppercase;
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
     }
-
 
     .button:hover,
-
     .button:focus {
-
       color: var(--ink);
-
       background: #e0b775;
-
-      transform: translateY(-2px);
-
+      transform: translateY(-3px);
     }
 
-
-    main { overflow: hidden; }
-
+    main {
+      overflow: hidden;
+    }
 
     .intro {
-
       max-width: 760px;
-
       margin: 0 auto;
-
-      padding: 5rem 1.5rem 3rem;
-
+      padding: 6rem 1.5rem 3rem;
       text-align: center;
-
     }
 
-
-    .intro h2 { font-size: clamp(2rem, 4vw, 3.2rem); }
-
+    .intro h2 {
+      font-size: clamp(2.5rem, 4vw, 3.7rem);
+      font-weight: 500;
+    }
 
     .intro p {
-
       margin: 0;
-
       color: #536058;
-
-      font-size: 1.1rem;
-
+      font-size: 1.08rem;
     }
-
 
     .features {
-
       display: grid;
-
       grid-template-columns: repeat(3, 1fr);
-
       max-width: 1180px;
-
       gap: 1.25rem;
-
       margin: 0 auto;
-
-      padding: 2rem 1.5rem 5rem;
-
+      padding: 2rem 1.5rem 6rem;
     }
-
 
     .feature {
-
-      min-height: 280px;
-
+      min-height: 290px;
       padding: 2rem;
-
       display: flex;
-
       flex-direction: column;
-
       justify-content: end;
-
-      color: var(--white);
-
-      background: var(--deep);
-
       border-radius: 3px;
-
+      color: var(--white);
+      background: var(--deep);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
+    .feature:hover {
+      box-shadow: 0 18px 35px rgba(31, 42, 36, 0.18);
+      transform: translateY(-9px);
+    }
 
     .feature:nth-child(2) {
-
       color: var(--ink);
-
       background: #dfd7c6;
-
     }
 
-
-    .feature:nth-child(3) { background: var(--sage); }
-
+    .feature:nth-child(3) {
+      background: var(--sage);
+    }
 
     .feature h3 {
-
       margin-bottom: 0.75rem;
-
-      font-size: 1.8rem;
-
-      font-weight: normal;
-
+      font-size: 2rem;
+      font-weight: 500;
     }
 
-
-    .feature p { margin: 0; }
-
+    .feature p {
+      margin: 0;
+    }
 
     .visit {
-
-      padding: 5rem 1.5rem;
-
+      padding: 6rem 1.5rem;
       text-align: center;
-
       color: var(--white);
-
       background: var(--ink);
-
     }
-
 
     .visit h2 {
-
       margin-bottom: 1rem;
-
-      font-size: clamp(2rem, 4vw, 3rem);
-
-      font-weight: normal;
-
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      font-weight: 500;
     }
-
 
     .visit p {
-
       max-width: 550px;
-
       margin: 0 auto 2rem;
-
       color: #d9e0d7;
-
     }
-
 
     footer {
-
-      padding: 1.2rem;
-
+      padding: 1.25rem;
       text-align: center;
-
-      font-size: 0.9rem;
-
       color: #657167;
-
+      font-size: 0.85rem;
     }
 
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     @media (max-width: 760px) {
+      .navigation {
+        padding: 0.85rem 1.25rem;
+      }
 
-      .hero { min-height: 72vh; }
+      .logo {
+        font-size: 1.25rem;
+      }
 
+      .navigation ul {
+        gap: 0.8rem;
+      }
 
-      .features { grid-template-columns: 1fr; }
+      .navigation a {
+        font-size: 0.68rem;
+      }
 
+      .hero {
+        min-height: 75vh;
+      }
 
-      .feature { min-height: 220px; }
+      .features {
+        grid-template-columns: 1fr;
+      }
 
+      .feature {
+        min-height: 220px;
+      }
 
-      .intro { padding-top: 4rem; }
-
+      .intro {
+        padding-top: 4.5rem;
+      }
     }
-
   </style>
-
 </head>
-
 <body>
+  <nav class="navigation">
+    <a class="logo" href="#home">The Oratory</a>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-  <header class="hero">
-
-    <div class="hero-content">
-
+  <header class="hero" id="home">
+    <div class="hero-content fade-in">
       <p class="eyebrow">Cahersiveen, County Kerry</p>
-
       <h1>The Oratory Restaurant</h1>
-
       <p>
-
         A welcoming table in the heart of Cahersiveen, celebrating good food,
-
         seasonal ingredients, and the easy warmth of Kerry hospitality.
-
       </p>
-
-      <a class="button" href="#visit">Plan Your Visit</a>
-
+      <a class="button" href="#contact">Plan Your Visit</a>
     </div>
-
   </header>
 
-
   <main>
-
-    <section class="intro">
-
+    <section class="intro fade-in" id="about">
       <h2>Gather, taste, linger.</h2>
-
       <p>
-
         The Oratory is a place for unhurried meals and memorable evenings:
-
         thoughtfully prepared dishes, friendly service, and a relaxed setting
-
         made for sharing time together.
-
       </p>
-
     </section>
 
-
-    <section class="features" aria-label="Restaurant highlights">
-
-      <article class="feature">
-
+    <section class="features" id="experience" aria-label="Restaurant highlights">
+      <article class="feature fade-in">
         <h3>Seasonal Flavours</h3>
-
         <p>
-
           A menu inspired by the changing seasons and the outstanding produce
-
           found along the Kerry coast and countryside.
-
         </p>
-
       </article>
 
-
-      <article class="feature">
-
+      <article class="feature fade-in">
         <h3>Warm Welcome</h3>
-
         <p>
-
           From a quiet dinner for two to a table full of friends, every visit
-
           is made to feel personal, comfortable, and special.
-
         </p>
-
       </article>
 
-
-      <article class="feature">
-
+      <article class="feature fade-in">
         <h3>Cahersiveen Evenings</h3>
-
         <p>
-
           Settle in after a day exploring South Kerry and let a good meal become
-
           one of the highlights of your visit.
-
         </p>
-
       </article>
-
     </section>
 
-
-    <section class="visit" id="visit">
-
+    <section class="visit fade-in" id="contact">
       <h2>Join us at The Oratory</h2>
-
       <p>
-
         For reservations, opening hours, or private dining enquiries, please
-
         get in touch. We look forward to welcoming you.
-
       </p>
-
       <a class="button" href="mailto:hello@theoratorycahersiveen.ie">
-
         Contact Us
-
       </a>
-
     </section>
-
   </main>
 
-
   <footer>
-
     © <span id="year"></span> The Oratory Restaurant, Cahersiveen
-
   </footer>
 
-
   <script>
-
     document.getElementById("year").textContent = new Date().getFullYear();
 
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    document.querySelectorAll(".fade-in").forEach((element) => {
+      observer.observe(element);
+    });
   </script>
-
 </body>
-
 </html>
